@@ -14,14 +14,14 @@ func main() {
 		Status: "InProgress",
 	}
 	t2 := &card.Transaction{
-		Id:     1,
+		Id:     2,
 		Amount: 2_000_00,
 		Date:   123423456323,
 		MCC:    "0000",
 		Status: "Done",
 	}
 	t3 := &card.Transaction{
-		Id:     1,
+		Id:     3,
 		Amount: -1_203_91,
 		Date:   123432223456323,
 		MCC:    "5812",
@@ -48,4 +48,9 @@ func main() {
 	fmt.Println("Calculate the transactions amount for the restaurants and supermarkets")
 	mcc := []string{"5411", "5812"}
 	fmt.Println(float64(card.SumByMCC(master.Transactions, mcc)) / 100.0, "rubles")
+
+	fmt.Println("Return last 3 transactions")
+	fmt.Println(card.LastNTransactions(master,3))
+	fmt.Println("Check that original struct is not changed")
+	fmt.Println(master)
 }
