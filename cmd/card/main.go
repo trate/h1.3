@@ -48,4 +48,12 @@ func main() {
 	fmt.Println("Calculate the transactions amount for the restaurants and supermarkets")
 	mcc := []string{"5411", "5812"}
 	fmt.Println(float64(card.SumByMCC(master.Transactions, mcc)) / 100.0, "rubles")
+
+	// translate mcc
+	category := card.TranslateMCC(master.Transactions[0].MCC)
+	fmt.Println(category)
+	// check if mss doesn't exist
+	category = card.TranslateMCC(master.Transactions[1].MCC)
+	fmt.Println(category)
+
 }
