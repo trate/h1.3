@@ -40,3 +40,17 @@ func SumByMCC(transactions []Transaction, mcc []string) int64 {
 	}
 	return result
 }
+
+func TranslateMCC(code string) string {
+	// представим, что mcc читается из файла (научимся позже)
+	mcc := map[string]string{
+		"5411": "Супермаркеты",
+		"5812": "Рестораны",
+	}
+
+	if value, ok := mcc[code]; !ok {
+		return "Категория не указана"
+	} else {
+		return value
+	}
+}
